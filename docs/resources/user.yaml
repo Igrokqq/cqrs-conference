@@ -1,0 +1,21 @@
+post:
+    summary: Create
+    operationId: createOneUser
+    description: Create a user
+    tags:
+        - Users
+    requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: "../schemas/dto/user/create-user.yaml"
+    responses:
+        "200":
+            $ref: "../responses/ok.yaml"
+        "409":
+            description: "user exists"
+            $ref: "../responses/conflict.yaml"
+        "500":
+            $ref: "../responses/internal-server-error.yaml"

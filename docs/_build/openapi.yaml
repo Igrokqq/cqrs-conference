@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Swagger Petstore
+  description: Multi-file boilerplate for OpenAPI Specification.
+  license:
+    name: MIT
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: support@example.com
+servers:
+  - url: 'http://petstore.swagger.io/v1'
+tags:
+  - name: pets
+paths:
+  /pets:
+    post:
+      summary: Create
+      operationId: createPets
+      description: Create a pet
+      tags:
+        - pets
+      responses:
+        default:
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  responses:
+    InternalServerError:
+      description: internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

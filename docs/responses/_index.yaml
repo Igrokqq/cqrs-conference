@@ -1,0 +1,4 @@
+InternalServerError:
+    $ref: "./internal-server-error.yaml"
+OkResponse:
+    $ref: "./ok.yaml"

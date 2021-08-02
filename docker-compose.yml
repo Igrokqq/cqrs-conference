@@ -1,0 +1,33 @@
+version: "3"
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: ./docker/Backend.Dockerfile
+    command: bash -c "npm run start:dev"
+    volumes:
+      - "./:/var/www/app:cached"
+    ports:
+      - 3000:3000
+    links:
+      - postgres
+  postgres:
+    container_name: postgres
+    image: postgres:13.3-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - .env.dev
+    volumes:
+      - "postgres_data:/bitnami/postgres/data"
+  postgres-adminer:
+    container_name: postgres-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+volumes:
+  postgres_data:
+    external: true

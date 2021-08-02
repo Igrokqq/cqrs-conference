@@ -1,0 +1,6 @@
+{
+  "watch": ["docs"],
+  "ext": ".yaml",
+  "ignore": [],
+  "exec": "npm run swagger:build && node docs/serve.js"
+}

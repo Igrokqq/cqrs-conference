@@ -1,0 +1,7 @@
+Error:
+    $ref: "./error.yaml"
+Ok:
+    $ref: "./ok.yaml"
+# DTOS
+CreateUserDto:
+    $ref: "./dto/user/create-user.yaml"

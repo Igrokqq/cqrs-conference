@@ -1,0 +1,25 @@
+openapi: "3.0.0"
+info:
+    version: 1.0.0
+    title: Cqrs simple api
+    description: Cqrs simple api with only one component
+    license:
+        name: MIT
+    contact:
+        name: API Support
+        url: https://www.linkedin.com/in/pavel-yakun/
+        email: igrokqq1991@ukr.net
+servers:
+    - url: http://localhost:3000/api
+tags:
+    - name: Users
+paths:
+    /users:
+        $ref: "./resources/user.yaml"
+components:
+    # parameters:
+    #     $ref: "./parameters/_index.yaml"
+    schemas:
+        $ref: "./schemas/_index.yaml"
+    responses:
+        $ref: "./responses/_index.yaml"
